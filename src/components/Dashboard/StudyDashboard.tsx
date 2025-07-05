@@ -265,7 +265,7 @@ export const StudyDashboard: React.FC = () => {
       setActiveTool(toolId);
       setActiveTab('tools');
     } else {
-      toast.info('Công cụ này đang được phát triển!');
+      toast('Công cụ này đang được phát triển!');
     }
   };
 
