@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { useStore } from './store/useStore';
 import { Header } from './components/Layout/Header';
+import { StudyDashboard } from './components/Dashboard/StudyDashboard';
 import { StudyAnalytics } from './components/Dashboard/StudyAnalytics';
 import { AdvancedPomodoro } from './components/Tools/AdvancedPomodoro';
 import { SmartNotes } from './components/Tools/SmartNotes';
@@ -53,6 +54,7 @@ import {
 function App() {
   const { isAuthenticated } = useStore();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showStudyDashboard, setShowStudyDashboard] = useState(false);
   const [activeToolDemo, setActiveToolDemo] = useState<string | null>(null);
   
   // Search and filter states
@@ -267,6 +269,14 @@ function App() {
     return matchesSearch && matchesCategory;
   });
 
+  const handleStartStudying = () => {
+    if (!isAuthenticated) {
+      toast.error('Vui lòng đăng nhập để sử dụng tính năng này');
+      return;
+    }
+    setShowStudyDashboard(true);
+  };
+
   const renderToolDemo = (toolId: string) => {
     switch (toolId) {
       case 'pomodoro':
@@ -284,6 +294,26 @@ function App() {
 
   return (
     <div className="min-h-screen transition-colors duration-300">
+      {showStudyDashboard && isAuthenticated ? (
+        <div className="min-h-screen">
+          <Header 
+            onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            isMobileMenuOpen={isMobileMenuOpen}
+          />
+          <div className="pt-4">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+              <button
+                onClick={() => setShowStudyDashboard(false)}
+                className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
+              >
+                <ChevronRight className="w-5 h-5 rotate-180" />
+                <span>Quay về trang chủ</span>
+              </button>
+            </div>
+            <StudyDashboard />
+          </div>
+        </div>
+      ) : (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
         <Header 
           onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -312,6 +342,7 @@ function App() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <button 
+                    onClick={handleStartStudying}
                     className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto min-w-[200px]"
                   >
                     <Play className="w-5 h-5" />
@@ -938,6 +969,7 @@ function App() {
           }}
         />
       </div>
+      )}
     </div>
   );
 }
