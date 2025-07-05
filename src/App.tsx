@@ -967,30 +967,6 @@ function App() {
             </div>
           </footer>
 
-          {/* Contact Section */}
-          <section id="contact" className="py-16 bg-gray-50">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-                  Liên Hệ Với Chúng Tôi
-                </h2>
-                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Có câu hỏi hoặc cần hỗ trợ? Đội ngũ StudyVN luôn sẵn sàng giúp đỡ bạn.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    Gửi Email
-                  </button>
-                  <button className="bg-white text-gray-700 px-8 py-3 rounded-full text-lg font-semibold border border-gray-300 hover:bg-gray-50 transition-all duration-300">
-                    Chat Trực Tuyến
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-          </section>
         </main>
 
         <Toaster
