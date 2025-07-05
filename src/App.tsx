@@ -376,7 +376,7 @@ function App() {
           </section>
 
           {/* Vision & Mission Section */}
-          <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+          <section id="vision" className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -397,8 +397,17 @@ function App() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                 >
+                  {/* Background Image */}
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <img 
+                      src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                      alt="Innovation" 
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
                       <Lightbulb className="w-8 h-8 text-white" />
@@ -444,8 +453,17 @@ function App() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                 >
+                  {/* Background Image */}
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <img 
+                      src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" 
+                      alt="Vision Mission" 
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
                       <Target className="w-8 h-8 text-white" />
@@ -966,6 +984,31 @@ function App() {
               </div>
             </div>
           </footer>
+
+          {/* Contact Section */}
+          <section id="contact" className="py-16 bg-gray-50">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                  Liên Hệ Với Chúng Tôi
+                </h2>
+                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                  Có câu hỏi hoặc cần hỗ trợ? Đội ngũ StudyVN luôn sẵn sàng giúp đỡ bạn.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    Gửi Email
+                  </button>
+                  <button className="bg-white text-gray-700 px-8 py-3 rounded-full text-lg font-semibold border border-gray-300 hover:bg-gray-50 transition-all duration-300">
+                    Chat Trực Tuyến
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+          </section>
         </main>
 
         <Toaster

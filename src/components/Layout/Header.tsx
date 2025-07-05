@@ -34,14 +34,20 @@ export const Header: React.FC<HeaderProps> = ({ onMenuToggle, isMobileMenuOpen }
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#tools" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <a href="#vision" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Về Chúng Tôi
+              </a>
+              <a href="#tools" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 Công Cụ
               </a>
-              <a href="#ai" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <a href="#ai" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 AI Hỗ Trợ
               </a>
-              <a href="#materials" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <a href="#materials" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 Tài Liệu
+              </a>
+              <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Liên Hệ
               </a>
 
               {/* User Menu */}
@@ -130,6 +136,9 @@ export const Header: React.FC<HeaderProps> = ({ onMenuToggle, isMobileMenuOpen }
               className="md:hidden bg-white/95 backdrop-blur-lg border-t border-gray-200/50"
             >
               <div className="px-4 py-4 space-y-4">
+                <a href="#vision" className="block text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                  Về Chúng Tôi
+                </a>
                 <a href="#tools" className="block text-gray-700 hover:text-blue-600 transition-colors">
                   Công Cụ
                 </a>
@@ -138,6 +147,9 @@ export const Header: React.FC<HeaderProps> = ({ onMenuToggle, isMobileMenuOpen }
                 </a>
                 <a href="#materials" className="block text-gray-700 hover:text-blue-600 transition-colors">
                   Tài Liệu
+                </a>
+                <a href="#contact" className="block text-gray-700 hover:text-blue-600 transition-colors">
+                  Liên Hệ
                 </a>
                 
                 {!isAuthenticated && (
