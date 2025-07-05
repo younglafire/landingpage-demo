@@ -539,6 +539,8 @@ function App() {
           {/* Study Tools Section */}
           <section id="tools" className="py-16">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center mb-12"
               >
@@ -734,6 +736,8 @@ function App() {
           </section>
 
           {/* Study Materials Section */}
+          <section id="materials" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -884,6 +888,9 @@ function App() {
             </div>
           </section>
 
+          {/* Call to Action Section */}
+          <section className="py-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
