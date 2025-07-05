@@ -399,15 +399,6 @@ function App() {
                   transition={{ delay: 0.2 }}
                   className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                 >
-                  {/* Background Image */}
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                    <img 
-                      src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                      alt="Innovation" 
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                  </div>
-                  
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
                       <Lightbulb className="w-8 h-8 text-white" />
@@ -455,15 +446,6 @@ function App() {
                   transition={{ delay: 0.4 }}
                   className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                 >
-                  {/* Background Image */}
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                    <img 
-                      src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" 
-                      alt="Vision Mission" 
-                      className="w-full h-full object-cover rounded-full"
-                    />
-                  </div>
-                  
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
                       <Target className="w-8 h-8 text-white" />
