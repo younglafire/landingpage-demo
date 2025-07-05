@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import { useStore } from './store/useStore';
 import { Header } from './components/Layout/Header';
