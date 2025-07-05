@@ -294,6 +294,23 @@ function App() {
           {/* Hero Section */}
           <section className="relative py-16 lg:py-24 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
+            
+            {/* Decorative Images */}
+            <div className="absolute top-20 right-10 w-32 h-32 opacity-20 animate-float hidden lg:block">
+              <img 
+                src="/src/assets/z6775826324736_dd78cad8af4c30919d2f81ca42b1b235.jpg" 
+                alt="Student with idea" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute bottom-20 left-10 w-40 h-40 opacity-15 animate-float delay-300 hidden lg:block">
+              <img 
+                src="/src/assets/z6775826347849_8a6d7aa0e59365dd156cc335764921cd.jpg" 
+                alt="Students studying together" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            
             <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -378,6 +395,15 @@ function App() {
           {/* Vision & Mission Section */}
           <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Decorative Image */}
+              <div className="absolute top-10 right-20 w-24 h-24 opacity-10 animate-pulse hidden xl:block">
+                <img 
+                  src="/src/assets/z6775826308046_de3fc2a07584d26949da457890da4a01.jpg" 
+                  alt="Student with laptop" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -397,8 +423,17 @@ function App() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                 >
+                  {/* Background decorative image */}
+                  <div className="absolute top-4 right-4 w-16 h-16 opacity-5">
+                    <img 
+                      src="/src/assets/z6775826290872_8be2d9d1a9728582ca4e589492f791ab.jpg" 
+                      alt="Research illustration" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
                       <Lightbulb className="w-8 h-8 text-white" />
@@ -444,8 +479,17 @@ function App() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
                 >
+                  {/* Background decorative image */}
+                  <div className="absolute bottom-4 left-4 w-20 h-20 opacity-5">
+                    <img 
+                      src="/src/assets/z6775826274480_1fc2901fa2522b5b4ce6eecb433b1803.jpg" 
+                      alt="Students collaboration" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
                       <Target className="w-8 h-8 text-white" />
@@ -540,6 +584,15 @@ function App() {
           {/* Study Tools Section */}
           <section id="tools" className="py-16">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Decorative Images */}
+              <div className="absolute top-10 left-10 w-28 h-28 opacity-10 animate-float hidden lg:block">
+                <img 
+                  src="/src/assets/z6775826308046_de3fc2a07584d26949da457890da4a01.jpg" 
+                  alt="Student studying" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -605,6 +658,15 @@ function App() {
           {/* AI Tools Section */}
           <section id="ai" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Decorative Images */}
+              <div className="absolute top-20 right-20 w-32 h-32 opacity-8 animate-pulse hidden xl:block">
+                <img 
+                  src="/src/assets/z6775826290872_8be2d9d1a9728582ca4e589492f791ab.jpg" 
+                  alt="AI Research" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -741,6 +803,15 @@ function App() {
           {/* Study Materials Section */}
           <section id="materials" className="py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Decorative Images */}
+              <div className="absolute bottom-20 left-20 w-36 h-36 opacity-8 animate-float delay-500 hidden xl:block">
+                <img 
+                  src="/src/assets/z6775826347849_8a6d7aa0e59365dd156cc335764921cd.jpg" 
+                  alt="Students studying materials" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -894,6 +965,22 @@ function App() {
           {/* CTA Section */}
           <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              {/* Decorative Images */}
+              <div className="absolute top-10 left-1/4 w-24 h-24 opacity-20 animate-bounce hidden lg:block">
+                <img 
+                  src="/src/assets/z6775826324736_dd78cad8af4c30919d2f81ca42b1b235.jpg" 
+                  alt="Student with idea" 
+                  className="w-full h-full object-contain filter brightness-0 invert"
+                />
+              </div>
+              <div className="absolute bottom-10 right-1/4 w-28 h-28 opacity-20 animate-bounce delay-300 hidden lg:block">
+                <img 
+                  src="/src/assets/z6775826274480_1fc2901fa2522b5b4ce6eecb433b1803.jpg" 
+                  alt="Students collaboration" 
+                  className="w-full h-full object-contain filter brightness-0 invert"
+                />
+              </div>
+              
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
