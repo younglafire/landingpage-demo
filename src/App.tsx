@@ -331,49 +331,6 @@ function App() {
             <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-pink-500/20 rounded-full blur-xl animate-pulse delay-700"></div>
           </section>
 
-          {/* Stats Section */}
-          <section className="py-12 bg-white/50 backdrop-blur-sm">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl md:text-3xl font-bold text-blue-600 mb-2">50K+</div>
-                  <div className="text-gray-600 text-sm md:text-base">Sinh Viên Hoạt Động</div>
-                </motion.div>
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl md:text-3xl font-bold text-purple-600 mb-2">1M+</div>
-                  <div className="text-gray-600 text-sm md:text-base">Phiên Học Tập</div>
-                </motion.div>
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl md:text-3xl font-bold text-green-600 mb-2">95%</div>
-                  <div className="text-gray-600 text-sm md:text-base">Tỷ Lệ Thành Công</div>
-                </motion.div>
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl md:text-3xl font-bold text-pink-600 mb-2">24/7</div>
-                  <div className="text-gray-600 text-sm md:text-base">Hỗ Trợ AI</div>
-                </motion.div>
-              </div>
-            </div>
-          </section>
 
           {/* Vision & Mission Section */}
           <section id="vision" className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
