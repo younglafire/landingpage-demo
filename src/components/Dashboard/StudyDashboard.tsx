@@ -578,7 +578,7 @@ export const StudyDashboard: React.FC = () => {
                       <span className="text-xs text-gray-500">{tool.users} người dùng</span>
                       <button
                         onClick={() => handleAiToolClick(tool.url, tool.name)}
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium flex items-center justify-center space-x-1 text-sm px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium flex items-center justify-center space-x-2 text-sm px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 min-w-[100px]"
                       >
                         <span>Truy Cập</span>
                         <ExternalLink className="w-4 h-4" />

@@ -343,12 +343,12 @@ function App() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <button 
                     onClick={handleStartStudying}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto min-w-[200px]"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
                   >
                     <Play className="w-5 h-5" />
                     <span>Bắt Đầu Học</span>
                   </button>
-                  <button className="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto min-w-[200px]">
+                  <button className="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]">
                     <Download className="w-5 h-5" />
                     <span>Tải Tài Liệu</span>
                   </button>
