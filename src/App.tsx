@@ -293,6 +293,7 @@ function App() {
         <main className="relative">
           {/* Hero Section */}
           <section className="relative py-16 lg:py-24 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
             <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -396,17 +397,17 @@ function App() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
                 >
-                  {/* Background decorative image */}
-                  <div className="absolute top-4 right-4 w-16 h-16 opacity-5">
-                    <img 
-                      src="/src/assets/z6775826290872_8be2d9d1a9728582ca4e589492f791ab.jpg" 
-                      alt="Research illustration" 
-                      className="w-full h-full object-contain"
-                    />
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
+                      <Lightbulb className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2">💡 Ý Tưởng Chính</h3>
+                      <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                    </div>
                   </div>
-                  
                   
                   <p className="text-gray-700 leading-relaxed mb-6">
                     StudyVN được thiết kế như một <strong>"trợ lý học tập toàn diện"</strong> dành riêng cho sinh viên Việt Nam, 
@@ -443,17 +444,17 @@ function App() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300"
                 >
-                  {/* Background decorative image */}
-                  <div className="absolute bottom-4 left-4 w-20 h-20 opacity-5">
-                    <img 
-                      src="/src/assets/z6775826274480_1fc2901fa2522b5b4ce6eecb433b1803.jpg" 
-                      alt="Students collaboration" 
-                      className="w-full h-full object-contain"
-                    />
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2">🎯 Tầm Nhìn & Sứ Mệnh</h3>
+                      <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                    </div>
                   </div>
-                  
 
                   <div className="space-y-6">
                     {/* Tầm Nhìn */}
@@ -604,6 +605,8 @@ function App() {
           {/* AI Tools Section */}
           <section id="ai" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center mb-12"
               >
@@ -736,7 +739,7 @@ function App() {
           </section>
 
           {/* Study Materials Section */}
-          <section id="materials" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+          <section id="materials" className="py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -888,8 +891,8 @@ function App() {
             </div>
           </section>
 
-          {/* Call to Action Section */}
-          <section className="py-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+          {/* CTA Section */}
+          <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
