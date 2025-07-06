@@ -910,7 +910,7 @@ function App() {
               <div className="grid md:grid-cols-4 gap-8">
                 <div>
                   <div className="flex items-center space-x-2 mb-4">
-                    <img src="/image-Photoroom copy.png" alt="Study VHU Logo" className="w-8 h-8" />
+                    <img src="/image.png" alt="Study VHU Logo" className="w-8 h-8" />
                     <span className="text-xl font-bold">Study VHU</span>
                   </div>
                   <p className="text-gray-400 text-sm">
