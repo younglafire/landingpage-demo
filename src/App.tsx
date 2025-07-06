@@ -334,11 +334,11 @@ function App() {
                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
                   Nền Tảng Học Tập
                   <br />
-                  Thông Minh Cho Sinh Viên
+                  Thông Minh Cho Sinh Viên VHU
                 </h1>
                 <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                  Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ 
-                  và các tính năng năng suất được thiết kế dành riêng cho sinh viên Việt Nam.
+                  Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ
+                  và các tính năng năng suất được thiết kế dành riêng cho sinh viên VHU.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <button 
@@ -375,7 +375,7 @@ function App() {
                   Ý Tưởng & Tầm Nhìn
                 </h2>
                 <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                  Khám phá triết lý và định hướng phát triển của StudyVN
+                  Khám phá triết lý và định hướng phát triển của Study VHU
                 </p>
               </motion.div>
 
@@ -398,7 +398,7 @@ function App() {
                   </div>
                   
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    StudyVN được thiết kế như một <strong>"trợ lý học tập toàn diện"</strong> dành riêng cho sinh viên Việt Nam, 
+                    Study VHU được thiết kế như một <strong>"trợ lý học tập toàn diện"</strong> dành riêng cho sinh viên VHU, 
                     kết hợp công nghệ AI hiện đại với các công cụ học tập thiết thực để tối ưu hóa trải nghiệm học tập.
                   </p>
 
@@ -414,7 +414,7 @@ function App() {
                       <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
                       <div>
                         <h4 className="font-semibold text-gray-800 mb-1">Localized for Vietnam</h4>
-                        <p className="text-sm text-gray-600">Thiết kế đặc biệt cho văn hóa và hệ thống giáo dục Việt Nam</p>
+                        <p className="text-sm text-gray-600">Thiết kế đặc biệt cho văn hóa và hệ thống giáo dục VHU</p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
@@ -452,7 +452,7 @@ function App() {
                         <h4 className="font-bold text-gray-800">Tầm Nhìn</h4>
                       </div>
                       <p className="text-gray-700 leading-relaxed">
-                        Trở thành <strong>nền tảng học tập số 1 Việt Nam</strong>, nơi mọi sinh viên có thể tiếp cận 
+                        Trở thành <strong>nền tảng học tập số 1 VHU</strong>, nơi mọi sinh viên có thể tiếp cận 
                         công nghệ tiên tiến để nâng cao hiệu quả học tập.
                       </p>
                     </div>
@@ -465,7 +465,7 @@ function App() {
                       </div>
                       <p className="text-gray-700 leading-relaxed mb-3">
                         <strong>Democratize Education Technology</strong> - Đưa công nghệ giáo dục đến gần hơn với 
-                        mọi sinh viên Việt Nam, bất kể hoàn cảnh kinh tế hay địa lý.
+                        mọi sinh viên VHU, bất kể hoàn cảnh kinh tế hay địa lý.
                       </p>
                       <div className="flex flex-wrap gap-2">
                         <span className="bg-white/80 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">
@@ -910,8 +910,8 @@ function App() {
               <div className="grid md:grid-cols-4 gap-8">
                 <div>
                   <div className="flex items-center space-x-2 mb-4">
-                    <GraduationCap className="w-8 h-8 text-blue-400" />
-                    <span className="text-xl font-bold">StudyVN</span>
+                    <img src="/image-Photoroom.png" alt="Study VHU Logo" className="w-8 h-8" />
+                    <span className="text-xl font-bold">Study VHU</span>
                   </div>
                   <p className="text-gray-400 text-sm">
                     Trao quyền cho sinh viên với các công cụ và tài nguyên tiên tiến để đạt được thành công trong học tập.
@@ -950,7 +950,7 @@ function App() {
               </div>
               
               <div className="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400 text-sm">
-                <p>&copy; 2024 StudyVN. Tất cả quyền được bảo lưu.</p>
+                <p>&copy; 2024 Study VHU. Tất cả quyền được bảo lưu.</p>
               </div>
             </div>
           </footer>

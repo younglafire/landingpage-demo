@@ -191,7 +191,7 @@ export const useStore = create<AppState>()(
       },
     }),
     {
-      name: 'studyvn-storage',
+      name: 'study-vhu-storage',
       partialize: (state) => ({
         user: state.user,
         isAuthenticated: state.isAuthenticated,
