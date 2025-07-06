@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuToggle, isMobileMenuOpen }
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <img src="/logo.png" alt="Study VHU Logo" className="w-12 h-12 object-contain" />
+              <img src="/logo.png" alt="Study VHU Logo" className="w-16 h-16 object-contain" />
             </div>
             
             {/* Desktop Navigation */}
