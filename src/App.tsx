@@ -23,6 +23,7 @@ import {
   Play,
   Download,
   ChevronRight,
+  ChevronUp,
   GraduationCap,
   Lightbulb,
   Bookmark,
@@ -58,6 +59,7 @@ function App() {
   const [showStudyDashboard, setShowStudyDashboard] = useState(false);
   const [activeToolDemo, setActiveToolDemo] = useState<string | null>(null);
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
   
   // Search and filter states
   const [aiSearchTerm, setAiSearchTerm] = useState('');
@@ -65,6 +67,27 @@ function App() {
   const [materialsSearchTerm, setMaterialsSearchTerm] = useState('');
   const [selectedMaterialsCategory, setSelectedMaterialsCategory] = useState('Tất Cả');
 
+  // Handle scroll to show/hide scroll to top button
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Show button when scrolled past half of the viewport height
+      setShowScrollToTop(scrollTop > windowHeight / 2);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   const studyTools = [
     {
       id: 'pomodoro',
@@ -991,6 +1014,24 @@ function App() {
 
         <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
       </div>
+      )}
+
+      {/* Scroll to Top Button */}
+      {showScrollToTop && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-40 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <ChevronUp className="w-6 h-6 group-hover:animate-bounce" />
+          <div className="absolute right-full mr-3 px-3 py-1 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Về đầu trang
+          </div>
+        </motion.button>
       )}
     </div>
   );
