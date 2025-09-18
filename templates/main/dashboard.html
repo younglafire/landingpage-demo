@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Study VHU{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <!-- Header -->
+    <nav class="sticky top-0 z-50 bg-white/95 shadow-lg backdrop-blur-lg border-b border-gray-200/70">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-md">
+                        <img src="{% static 'images/logo.png' %}" alt="Logo" class="object-cover w-full h-full">
+                    </div>
+                    <span class="text-xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Study VHU
+                    </span>
+                </div>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 text-gray-400 hover:text-gray-600 transition-colors">
+                        <i data-lucide="bell" class="w-5 h-5"></i>
+                    </button>
+                    
+                    <div class="relative">
+                        <button id="user-menu-button" class="flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-9 h-9 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-sm ring-2 ring-purple-300 shadow-md">
+                                {{ user.first_name.0|upper|default:user.username.0|upper }}
+                            </div>
+                            <span class="text-gray-700">{{ user.first_name|default:user.username }}</span>
+                        </button>
+
+                        <div id="user-menu" class="hidden absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-200 py-2 overflow-hidden">
+                            <div class="px-4 py-3 border-b border-gray-200 bg-gray-50">
+                                <p class="text-sm font-semibold text-gray-800">{{ user.first_name|default:user.username }}</p>
+                                <p class="text-xs text-gray-500">{{ user.email }}</p>
+                            </div>
+
+                            <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 flex items-center space-x-2">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                                <span>Hồ sơ</span>
+                            </button>
+
+                            <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 flex items-center space-x-2">
+                                <i data-lucide="settings" class="w-4 h-4"></i>
+                                <span>Cài đặt</span>
+                            </button>
+
+                            <hr class="my-2 border-gray-200">
+
+                            <a href="{% url 'main:home' %}" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 flex items-center space-x-2">
+                                <i data-lucide="home" class="w-4 h-4"></i>
+                                <span>Trang chủ</span>
+                            </a>
+
+                            <a href="{% url 'main:logout' %}" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center space-x-2">
+                                <i data-lucide="log-out" class="w-4 h-4"></i>
+                                <span>Đăng xuất</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Welcome Header -->
+        <div class="mb-8 animate-fade-in-up">
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+                            Chào mừng trở lại, {{ user.first_name|default:user.username }}! 👋
+                        </h1>
+                        <p class="text-gray-600">
+                            Sẵn sàng cho một phiên học tập hiệu quả hôm nay?
+                        </p>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-4">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-blue-600">7</div>
+                            <div class="text-sm text-gray-500">Ngày liên tiếp</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-green-600">2.5h</div>
+                            <div class="text-sm text-gray-500">Hôm nay</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-purple-600">85%</div>
+                            <div class="text-sm text-gray-500">Mục tiêu tuần</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="mb-8">
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-2 border border-gray-200/50">
+                <div class="flex space-x-2 overflow-x-auto">
+                    <button class="tab-btn active flex items-center space-x-2 px-4 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="overview">
+                        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        <span>Tổng Quan</span>
+                    </button>
+                    <button class="tab-btn flex items-center space-x-2 px-4 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="tools">
+                        <i data-lucide="settings" class="w-5 h-5"></i>
+                        <span>Công Cụ Học Tập</span>
+                    </button>
+                    <button class="tab-btn flex items-center space-x-2 px-4 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="ai">
+                        <i data-lucide="brain" class="w-5 h-5"></i>
+                        <span>AI Hỗ Trợ</span>
+                    </button>
+                    <button class="tab-btn flex items-center space-x-2 px-4 py-3 rounded-xl font-medium transition-all whitespace-nowrap" data-tab="progress">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                        <span>Tiến Độ</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div id="content-area">
+            <!-- Overview Tab -->
+            <div id="overview-tab" class="tab-content space-y-8">
+                <!-- Quick Actions -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="tool-card bg-white/70 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200/50 cursor-pointer" data-tool="pomodoro">
+                        <div class="w-14 h-14 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-4">
+                            <i data-lucide="clock" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Bộ Đếm Pomodoro</h3>
+                        <p class="text-gray-600 text-sm">Tăng hiệu suất học tập với phiên học tập tập trung 25 phút</p>
+                    </div>
+
+                    <div class="tool-card bg-white/70 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200/50 cursor-pointer" data-tool="notes">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4">
+                            <i data-lucide="sticky-note" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Ghi Chú Thông Minh</h3>
+                        <p class="text-gray-600 text-sm">Tổ chức và đồng bộ ghi chú trên mọi thiết bị</p>
+                    </div>
+
+                    <div class="tool-card bg-white/70 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200/50 cursor-pointer" data-tool="schedule">
+                        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4">
+                            <i data-lucide="calendar" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Thời Khóa Biểu</h3>
+                        <p class="text-gray-600 text-sm">Lập kế hoạch học tập và theo dõi tiến độ</p>
+                    </div>
+
+                    <div class="tool-card bg-white/70 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200/50 cursor-pointer" data-tool="analytics">
+                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4">
+                            <i data-lucide="bar-chart-3" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Thống Kê Học Tập</h3>
+                        <p class="text-gray-600 text-sm">Phân tích và theo dõi tiến độ học tập của bạn</p>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-6">Hoạt Động Gần Đây</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4 p-4 bg-blue-50 rounded-xl">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="clock" class="w-5 h-5 text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-800">Hoàn thành phiên Pomodoro 25 phút</p>
+                                <p class="text-sm text-gray-500">Môn: Toán học - 2 giờ trước</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-green-50 rounded-xl">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="sticky-note" class="w-5 h-5 text-green-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-800">Tạo ghi chú mới: "Công thức đạo hàm"</p>
+                                <p class="text-sm text-gray-500">4 giờ trước</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-purple-50 rounded-xl">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-purple-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium text-gray-800">Hoàn thành bài tập Vật lý</p>
+                                <p class="text-sm text-gray-500">Hôm qua</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Tab -->
+            <div id="tools-tab" class="tab-content hidden">
+                <div id="tools-grid" class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Tools will be populated by JavaScript -->
+                </div>
+                
+                <!-- Tool Detail View -->
+                <div id="tool-detail" class="hidden">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 id="tool-title" class="text-2xl font-bold text-gray-800"></h2>
+                        <button id="back-to-tools" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                            Quay lại
+                        </button>
+                    </div>
+                    <div id="tool-content">
+                        <!-- Tool content will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Tab -->
+            <div id="ai-tab" class="tab-content hidden space-y-8">
+                <!-- AI Tools Header -->
+                <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">AI Hỗ Trợ Học Tập</h2>
+                    <p class="text-gray-600 mb-6">
+                        Khám phá các công cụ AI tốt nhất để tăng tốc quá trình học tập và nâng cao hiệu suất.
+                    </p>
+
+                    <!-- Search and Filter -->
+                    <div class="flex flex-col lg:flex-row gap-4">
+                        <div class="flex-1 relative">
+                            <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+                            <input
+                                type="text"
+                                id="dashboard-ai-search"
+                                placeholder="Tìm kiếm công cụ AI..."
+                                class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                        </div>
+                        <div id="dashboard-ai-categories" class="flex flex-wrap gap-2">
+                            <!-- Categories will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-sm text-gray-500">
+                        <span id="dashboard-ai-results-count">Hiển thị 0 / 0 công cụ</span>
+                    </div>
+                </div>
+
+                <!-- AI Tools Grid -->
+                <div id="dashboard-ai-tools-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- AI Tools will be populated by JavaScript -->
+                </div>
+
+                <div id="dashboard-ai-no-results" class="hidden text-center py-12">
+                    <div class="text-gray-400 mb-4">
+                        <i data-lucide="search" class="w-12 h-12 mx-auto"></i>
+                    </div>
+                    <p class="text-gray-500">Không tìm thấy công cụ AI phù hợp với tiêu chí tìm kiếm.</p>
+                </div>
+            </div>
+
+            <!-- Progress Tab -->
+            <div id="progress-tab" class="tab-content hidden">
+                <div id="analytics-content">
+                    <!-- Analytics content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Dashboard functionality will be loaded from dashboard.js
+</script>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}
