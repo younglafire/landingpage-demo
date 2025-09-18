@@ -354,48 +354,50 @@ function App() {
 
         <main className="relative">
           {/* Hero Section */}
-          <section className="relative py-16 lg:py-24 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-            <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-center"
-              >
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
-                  Nền Tảng Học Tập
-                  <br />
-                  Thông Minh Cho Sinh Viên VHU
-                </h1>
-                <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                  Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ
-                  và các tính năng năng suất được thiết kế dành riêng cho sinh viên VHU.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button 
-                    onClick={handleStartStudying}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
-                  >
-                    <Play className="w-5 h-5" />
-                    <span>Bắt Đầu Học</span>
-                  </button>
-                  <button 
-                    onClick={handleAuthRequired}
-                    className="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
-                  >
-                    <Download className="w-5 h-5" />
-                    <span>Tải Tài Liệu</span>
-                  </button>
-                </div>
-              </motion.div>
-            </div>
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
 
-            {/* Floating Elements */}
-            <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-300"></div>
-            <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-pink-500/20 rounded-full blur-xl animate-pulse delay-700"></div>
-          </section>
+  <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="text-center"
+    >
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+        Nền Tảng Học Tập
+        <br />
+        Thông Minh Cho Sinh Viên VHU
+      </h1>
+      <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ
+        và các tính năng năng suất được thiết kế dành riêng cho sinh viên VHU.
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <button 
+          onClick={handleStartStudying}
+          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
+        >
+          <Play className="w-5 h-5" />
+          <span>Bắt Đầu Học</span>
+        </button>
+        <button 
+          onClick={handleAuthRequired}
+          className="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
+        >
+          <Download className="w-5 h-5" />
+          <span>Tải Tài Liệu</span>
+        </button>
+      </div>
+    </motion.div>
+  </div>
+
+  {/* Floating Elements */}
+  <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+  <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-300"></div>
+  <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-pink-500/20 rounded-full blur-xl animate-pulse delay-700"></div>
+</section>
+
 
 
           {/* Vision & Mission Section */}
