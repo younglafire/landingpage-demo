@@ -365,9 +365,9 @@ function App() {
       className="text-center"
     >
       <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
-        Nền Tảng Học Tập
+        Nền tảng học tập 
         <br />
-        Thông Minh Cho Sinh Viên VHU
+        thông minh dành cho sinh viên VHU
       </h1>
       <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
         Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ
@@ -386,7 +386,7 @@ function App() {
           className="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
         >
           <Download className="w-5 h-5" />
-          <span>Tải Tài Liệu</span>
+          <span>Tải App</span>
         </button>
       </div>
     </motion.div>
