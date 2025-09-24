@@ -350,6 +350,7 @@ function App() {
         <Header 
           onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           isMobileMenuOpen={isMobileMenuOpen}
+          onRegisterClick={handleRegisterNow}
         />
 
         <main className="relative">
