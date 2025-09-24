@@ -1,14 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
-import { motion } from 'framer-motion';
-import { useStore } from './store/useStore';
-import { Header } from './components/Layout/Header';
-import { AuthModal } from './components/Auth/AuthModal';
-import { StudyDashboard } from './components/Dashboard/StudyDashboard';
-import { StudyAnalytics } from './components/Dashboard/StudyAnalytics';
-import { AdvancedPomodoro } from './components/Tools/AdvancedPomodoro';
-import { SmartNotes } from './components/Tools/SmartNotes';
-import { ScheduleManager } from './components/Tools/ScheduleManager';
+
 import { 
   BookOpen, 
   Clock, 
