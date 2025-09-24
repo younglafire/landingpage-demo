@@ -135,9 +135,9 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
 
     try {
       // EmailJS configuration - Replace with your actual values
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const serviceId = 'service_gmpuo1u';
+      const templateId = 'template_ezrvb8l';
+      const publicKey = 'kbM08mVTKZ_oUTTIJkbM08mVTKZ_oUTTIJ';
 
       // Prepare template parameters
       const templateParams = {
