@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 
+
+
 interface RegistrationFormProps {
   isOpen: boolean;
   onClose: () => void;
@@ -137,7 +139,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
       // EmailJS configuration - Replace with your actual values
       const serviceId = 'service_gmpuo1u';
       const templateId = 'template_ezrvb8l';
-      const publicKey = 'kbM08mVTKZ_oUTTIJkbM08mVTKZ_oUTTIJ';
+      const publicKey = 'kbM08mVTKZ_oUTTIJ';
 
       // Prepare template parameters
       const templateParams = {
