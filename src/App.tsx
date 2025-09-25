@@ -1,47 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  BookOpen, 
-  Clock, 
-  StickyNote, 
-  Calendar,
-  Brain,
-  Users,
-  Target,
-  Zap,
-  Star,
-  ArrowRight,
-  Play,
-  Download,
-  ChevronRight,
-  ChevronUp,
-  GraduationCap,
-  Lightbulb,
-  Bookmark,
-  Search,
-  TrendingUp,
-  Award,
-  FileText,
-  Calculator,
-  Globe,
-  Cpu,
-  MessageSquare,
-  PenTool,
-  Filter,
-  ChevronDown,
-  Plus,
-  Minus,
-  Save,
-  Edit3,
-  Trash2,
-  CheckCircle,
-  BarChart3,
-  Settings,
-  Eye,
-  Heart,
-  Rocket,
-  Shield,
-  Sparkles
-} from 'lucide-react';
+import { BookOpen, Clock, StickyNote, Calendar, Brain, Users, Target, Zap, Star, ArrowRight, Play, Download, ChevronRight, ChevronUp, GraduationCap, Lightbulb, Bookmark, Search, TrendingUp, Award, FileText, Calculator, Globe, Cpu, MessageSquare, PenTool, Filter, ChevronDown, Plus, Minus, Save, CreditCard as Edit3, Trash2, CheckCircle, BarChart3, Settings, Eye, Heart, Rocket, Shield, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 import { Header } from './components/Layout/Header';
