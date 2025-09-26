@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Clock, StickyNote, Calendar, Brain, Users, Target, Zap, Star, ArrowRight, Play, Download, ChevronRight, ChevronUp, GraduationCap, Lightbulb, Bookmark, Search, TrendingUp, Award, FileText, Calculator, Globe, Cpu, MessageSquare, PenTool, Filter, ChevronDown, Plus, Minus, Save, CreditCard as Edit3, Trash2, CheckCircle, BarChart3, Settings, Eye, Heart, Rocket, Shield, Sparkles } from 'lucide-react';
+import { BookOpen, Clock, StickyNote, Calendar, Brain, Users, Target, Code,Zap, Star, ArrowRight, Play, Download, ChevronRight, ChevronUp, GraduationCap, Lightbulb, Bookmark, Search, TrendingUp, Award, FileText, Calculator, Globe, Cpu, MessageSquare, PenTool, Filter, ChevronDown, Plus, Minus, Save, CreditCard as Edit3, Trash2, CheckCircle, BarChart3, Settings, Eye, Heart, Rocket, Shield, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 import { Header } from './components/Layout/Header';
 import { RegistrationForm } from './components/Registration/RegistrationForm';
+import StudyToolsSection from './video/StudyToolsSection';
+
+
+
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -40,6 +44,7 @@ function App() {
   const handleRegisterNow = () => {
     setShowRegistrationModal(true);
   };
+  
 
   const studyTools = [
     {
@@ -256,263 +261,168 @@ function App() {
       />
 
       <main className="relative">
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
+ {/* Hero Section */}
+  <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0f172a]">
+    {/* Background gradient + shape */}
+    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
+    <div className="absolute w-64 h-64 bg-pink-500/20 rounded-full blur-3xl top-10 left-10"></div>
+    <div className="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl bottom-10 right-10"></div>
 
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center"
-            >
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
-                Nền tảng học tập 
-                <br />
-                thông minh dành cho sinh viên VHU
-              </h1>
-              <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ
-                và các tính năng năng suất được thiết kế dành riêng cho sinh viên VHU.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button 
-                  onClick={handleRegisterNow}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
-                >
-                  <Play className="w-5 h-5" />
-                  <span>Đăng Ký Ngay</span>
-                </button>
-                <button 
-                  onClick={handleRegisterNow}
-                  className="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 w-full sm:w-auto sm:min-w-[200px]"
-                >
-                  <Download className="w-5 h-5" />
-                  <span>Tải Tài Liệu</span>
-                </button>
-              </div>
-            </motion.div>
-          </div>
+    {/* Content container */}
+    <div className="relative max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
+      {/* LEFT TEXT SIDE */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-left"
+      >
+        <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+          Nền tảng học tập <br />
+          <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            thông minh dành cho sinh viên VHU
+          </span>
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+          Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ,
+          và các tính năng năng suất được thiết kế dành riêng cho sinh viên.
+        </p>
 
-          {/* Floating Elements */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-300"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-pink-500/20 rounded-full blur-xl animate-pulse delay-700"></div>
-        </section>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <button
+            onClick={handleRegisterNow}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto"
+          >
+            <Play className="w-5 h-5" />
+            <span>Đăng Ký Ngay</span>
+          </button>
+        </div>
+      </motion.div>
 
-        {/* Vision & Mission Section */}
-        <section id="vision" className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Ý Tưởng & Tầm Nhìn
-              </h2>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                Khám phá triết lý và định hướng phát triển của Study VHU
-              </p>
-            </motion.div>
+      {/* RIGHT ILLUSTRATION SIDE */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        className="relative flex justify-center items-center"
+      >
+        {/* Ảnh minh họa tạm (bạn có thể đổi link này sang ảnh PNG/SVG tùy ý) */}
+        <img
+          src="hinhanh/Learning.svg"
+          
+          alt="Study Illustration"
+        className="w-[28rem] h-[28rem] md:w-[32rem] md:h-[32rem] lg:w-[36rem] lg:h-[36rem] object-contain drop-shadow-2xl"
 
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Ý Tưởng Chính */}
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-                className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mr-4">
-                    <Lightbulb className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">💡 Ý Tưởng Chính</h3>
-                    <div className="w-12 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                  </div>
-                </div>
-                
-                <p className="text-gray-700 leading-relaxed mb-6">
-                  Study VHU được thiết kế như một <strong>"trợ lý học tập toàn diện"</strong> dành riêng cho sinh viên VHU, 
-                  kết hợp công nghệ AI hiện đại với các công cụ học tập thiết thực để tối ưu hóa trải nghiệm học tập.
-                </p>
+        />
 
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">AI-Powered Learning</h4>
-                      <p className="text-sm text-gray-600">Tích hợp công nghệ AI để cá nhân hóa trải nghiệm học tập</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">Localized for Vietnam</h4>
-                      <p className="text-sm text-gray-600">Thiết kế đặc biệt cho văn hóa và hệ thống giáo dục VHU</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">All-in-One Platform</h4>
-                      <p className="text-sm text-gray-600">Tất cả công cụ học tập cần thiết trong một nền tảng duy nhất</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+        {/* Floating small icons / shapes */}
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
+          transition={{ duration: 4, repeat: Infinity }}
+          className="absolute -top-10 left-10 w-16 h-16 bg-blue-500/30 rounded-full blur-xl"
+        ></motion.div>
 
-              {/* Tầm Nhìn & Sứ Mệnh */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
-                    <Target className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">🎯 Tầm Nhìn & Sứ Mệnh</h3>
-                    <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
-                  </div>
-                </div>
+        <motion.div
+          animate={{ y: [0, 20, 0] }}
+          transition={{ duration: 5, repeat: Infinity }}
+          className="absolute bottom-10 -right-10 w-20 h-20 bg-pink-500/30 rounded-full blur-xl"
+        ></motion.div>
+      </motion.div>
+    </div>
+  </section>
 
-                <div className="space-y-6">
-                  {/* Tầm Nhìn */}
-                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
-                    <div className="flex items-center mb-3">
-                      <Eye className="w-5 h-5 text-blue-600 mr-2" />
-                      <h4 className="font-bold text-gray-800">Tầm Nhìn</h4>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed">
-                      Trở thành <strong>nền tảng học tập số 1 VHU</strong>, nơi mọi sinh viên có thể tiếp cận 
-                      công nghệ tiên tiến để nâng cao hiệu quả học tập.
-                    </p>
-                  </div>
 
-                  {/* Sứ Mệnh */}
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6">
-                    <div className="flex items-center mb-3">
-                      <Heart className="w-5 h-5 text-purple-600 mr-2" />
-                      <h4 className="font-bold text-gray-800">Sứ Mệnh</h4>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed mb-3">
-                      <strong>Democratize Education Technology</strong> - Đưa công nghệ giáo dục đến gần hơn với 
-                      mọi sinh viên VHU, bất kể hoàn cảnh kinh tế hay địa lý.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="bg-white/80 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">
-                        Công bằng giáo dục
-                      </span>
-                      <span className="bg-white/80 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
-                        Tiếp cận dễ dàng
-                      </span>
-                      <span className="bg-white/80 text-pink-700 px-3 py-1 rounded-full text-sm font-medium">
-                        Chất lượng cao
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
 
-            {/* Core Values */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="mt-12"
-            >
-              <h3 className="text-xl font-bold text-center text-gray-800 mb-8">Giá Trị Cốt Lõi</h3>
-              <div className="grid md:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Rocket className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Đổi Mới</h4>
-                  <p className="text-sm text-gray-600">Luôn tiên phong trong việc ứng dụng công nghệ mới</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Shield className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Tin Cậy</h4>
-                  <p className="text-sm text-gray-600">Đảm bảo chất lượng và bảo mật thông tin người dùng</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Cộng Đồng</h4>
-                  <p className="text-sm text-gray-600">Xây dựng cộng đồng học tập tích cực và hỗ trợ lẫn nhau</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <Sparkles className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Xuất Sắc</h4>
-                  <p className="text-sm text-gray-600">Cam kết mang đến trải nghiệm học tập tốt nhất</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
 
-        {/* Study Tools Section */}
-        <section id="tools" className="py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Công Cụ Học Tập Mạnh Mẽ
-              </h2>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                Tăng năng suất học tập với bộ công cụ tiên tiến được thiết kế để nâng cao trải nghiệm học tập của bạn.
-              </p>
-            </motion.div>
+{/* Introducing Section */}
+<section id="introducing" className="py-24 bg-gradient-to-br from-[#0A0F1E] via-[#111936] to-[#1C0F2E] relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {studyTools.map((tool, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200/50 flex flex-col h-full"
-                >
-                  <div className={`w-14 h-14 ${tool.color} rounded-2xl flex items-center justify-center mb-4`}>
-                    <tool.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-3 text-gray-800">{tool.title}</h3>
-                  <p className="text-gray-600 mb-4 text-sm flex-grow">{tool.description}</p>
-                  <div className="space-y-2 mb-6">
-                    {tool.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center space-x-2 text-xs text-gray-500">
-                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <button 
-                    onClick={handleRegisterNow}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium flex items-center justify-center space-x-2 text-sm py-3 px-4 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105 mt-auto"
-                  >
-                    <span>Đăng Ký Ngay</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+    {/* Text Content */}
+    <motion.div 
+      initial={{ opacity: 0, x: -40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="space-y-8"
+    >
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
+        Giới thiệu về <br /> Study VHU
+      </h2>
+
+      <p className="text-xl text-gray-300 leading-relaxed">
+        <span className="font-semibold text-purple-300">Study VHU</span> không chỉ là một ứng dụng học tập – 
+        mà là <strong className="text-blue-300">nền tảng toàn diện</strong>, giúp sinh viên VHU quản lý việc học,
+        rèn luyện kỷ luật, và phát triển bản thân trong kỷ nguyên số.
+      </p>
+
+      <p className="text-lg text-gray-400 leading-relaxed">
+        Từ Pomodoro, ghi chú, thống kê học tập cho đến trợ lý AI, Study VHU mang đến một không gian học tập
+        <span className="text-pink-300"> tập trung – thông minh – hiệu quả</span>.
+      </p>
+
+      <p className="text-lg text-gray-400 leading-relaxed">
+        Với triết lý <span className="font-semibold text-purple-300">“Học tập không giới hạn”</span>, Study VHU
+        hướng tới việc tạo ra một môi trường nơi mọi sinh viên đều có thể khai phá tiềm năng tối đa của mình.
+      </p>
+    </motion.div>
+
+    {/* Image Grid */}
+    <motion.div 
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      viewport={{ once: true }}
+      className="grid grid-cols-2 gap-6"
+    >
+      {/* Large Image */}
+      <motion.div 
+        whileHover={{ scale: 1.05, y: -5 }}
+        transition={{ type: "spring", stiffness: 200 }}
+        className="col-span-2"
+      >
+        <img 
+          src="hinhanh/Online calendar-pana.svg" 
+          alt="Study VHU Dashboard"
+          className="rounded-2xl shadow-xl border border-purple-500/30"
+        />
+      </motion.div>
+
+      {/* Small Image 1 */}
+      <motion.div 
+        whileHover={{ scale: 1.05, y: -5 }}
+        transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+      >
+        <img 
+          src="hinhanh/Research paper-amico (1).svg" 
+          alt="Pomodoro Tool"
+          className="rounded-2xl shadow-xl border border-blue-500/30"
+        />
+      </motion.div>
+
+      {/* Small Image 2 */}
+      <motion.div 
+        whileHover={{ scale: 1.05, y: -5 }}
+        transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+      >
+        <img 
+          src="hinhanh/Notes-bro.svg" 
+          alt="Study Statistics"
+          className="rounded-2xl shadow-xl border border-pink-500/30"
+        />
+      </motion.div>
+    </motion.div>
+
+  </div>
+</section>
+
+
+
+<StudyToolsSection />
+
+
+
+
 
         {/* AI Tools Section */}
         <section id="ai" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -652,6 +562,22 @@ function App() {
             </div>
           </div>
         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
         {/* Study Materials Section */}
         <section id="materials" className="py-16">
