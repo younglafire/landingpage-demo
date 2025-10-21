@@ -40,11 +40,11 @@ export const Header: React.FC<HeaderProps> = ({ onMenuToggle, isMobileMenuOpen, 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {[
-              { label: 'Về Chúng Tôi', href: '#vision' },
-              { label: 'Công Cụ', href: '#tools' },
-              { label: 'AI Hỗ Trợ', href: '#ai' },
-              { label: 'Tài Liệu', href: '#materials' },
-              { label: 'Liên Hệ', href: '#contact' },
+              { label: 'Đăng ký', href: '#trangchu' },
+              { label: 'Giới thiệu', href: '#introducing' },
+              { label: 'Hướng dẫn', href: '#video' },
+              { label: 'kho tài liệu', href: '#materials' },
+              { label: 'Liên hệ', href: '#contact' },
             ].map((link) => (
               <a
                 key={link.href}

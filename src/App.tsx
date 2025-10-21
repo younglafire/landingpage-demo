@@ -8,7 +8,6 @@ import StudyToolsSection from './video/StudyToolsSection';
 
 
 
-
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
@@ -261,161 +260,243 @@ function App() {
       />
 
       <main className="relative">
- {/* Hero Section */}
-  <section className="relative min-h-screen flex items-center overflow-hidden bg-[#0f172a]">
-    {/* Background gradient + shape */}
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10"></div>
-    <div className="absolute w-64 h-64 bg-pink-500/20 rounded-full blur-3xl top-10 left-10"></div>
-    <div className="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl bottom-10 right-10"></div>
+{/* Hero Section */}
+{/* backgroud */ }
+<div className="min-h-screen bg-cover bg-center text-white relative">
+<section
+  id="trangchu"
+  className="relative w-full h-screen overflow-hidden flex flex-col justify-center items-center bg-gradient-to-br from-indigo-900 via-purple-900 to-black text-white"
+>
+  {/* Lớp nền gradient mờ */}
+  <div className="absolute inset-0 bg-gradient-to-br from-indigo-800/20 via-purple-800/20 to-black/40"></div>
 
-    {/* Content container */}
-    <div className="relative max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
-      {/* LEFT TEXT SIDE */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-left"
-      >
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-          Nền tảng học tập <br />
-          <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-            thông minh dành cho sinh viên VHU
-          </span>
-        </h1>
-        <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
-          Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ,
-          và các tính năng năng suất được thiết kế dành riêng cho sinh viên.
-        </p>
+  {/* Hiệu ứng sáng tròn sau nhân vật */}
+  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-purple-600/30 blur-[120px] rounded-full"></div>
 
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button
-            onClick={handleRegisterNow}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 w-full sm:w-auto"
-          >
-            <Play className="w-5 h-5" />
-            <span>Đăng Ký Ngay</span>
-          </button>
-        </div>
-      </motion.div>
-
-      {/* RIGHT ILLUSTRATION SIDE */}
-      <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative flex justify-center items-center"
-      >
-        {/* Ảnh minh họa tạm (bạn có thể đổi link này sang ảnh PNG/SVG tùy ý) */}
-        <img
-          src="hinhanh/Learning.svg"
-          
-          alt="Study Illustration"
-        className="w-[28rem] h-[28rem] md:w-[32rem] md:h-[32rem] lg:w-[36rem] lg:h-[36rem] object-contain drop-shadow-2xl"
-
-        />
-
-        {/* Floating small icons / shapes */}
-        <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-          className="absolute -top-10 left-10 w-16 h-16 bg-blue-500/30 rounded-full blur-xl"
-        ></motion.div>
-
-        <motion.div
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 5, repeat: Infinity }}
-          className="absolute bottom-10 -right-10 w-20 h-20 bg-pink-500/30 rounded-full blur-xl"
-        ></motion.div>
-      </motion.div>
-    </div>
-  </section>
-
-
-
-
-{/* Introducing Section */}
-<section id="introducing" className="py-24 bg-gradient-to-br from-[#0A0F1E] via-[#111936] to-[#1C0F2E] relative overflow-hidden">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-16 items-center">
-
-    {/* Text Content */}
-    <motion.div 
+  {/* Content chính giữa màn hình */}
+  <div className="relative max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10 h-full">
+    {/* LEFT TEXT SIDE */}
+    <motion.div
       initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="space-y-8"
+      className="text-left flex flex-col justify-center h-full"
     >
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
-        Giới thiệu về <br /> Study VHU
-      </h2>
-
-      <p className="text-xl text-gray-300 leading-relaxed">
-        <span className="font-semibold text-purple-300">Study VHU</span> không chỉ là một ứng dụng học tập – 
-        mà là <strong className="text-blue-300">nền tảng toàn diện</strong>, giúp sinh viên VHU quản lý việc học,
-        rèn luyện kỷ luật, và phát triển bản thân trong kỷ nguyên số.
+      <h1 className="text-5xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+        Nền tảng học tập <br />
+        <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          thông minh dành cho sinh viên VHU
+        </span>
+      </h1>
+      <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl leading-relaxed">
+        Nâng cao hiệu quả học tập với công cụ AI tiên tiến, tài liệu học tập đầy đủ, 
+        và các tính năng năng suất được thiết kế dành riêng cho sinh viên.
       </p>
 
-      <p className="text-lg text-gray-400 leading-relaxed">
-        Từ Pomodoro, ghi chú, thống kê học tập cho đến trợ lý AI, Study VHU mang đến một không gian học tập
-        <span className="text-pink-300"> tập trung – thông minh – hiệu quả</span>.
-      </p>
-
-      <p className="text-lg text-gray-400 leading-relaxed">
-        Với triết lý <span className="font-semibold text-purple-300">“Học tập không giới hạn”</span>, Study VHU
-        hướng tới việc tạo ra một môi trường nơi mọi sinh viên đều có thể khai phá tiềm năng tối đa của mình.
-      </p>
+      <button
+        onClick={handleRegisterNow}
+        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-full text-xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center gap-2 w-fit"
+      >
+        <Play className="w-6 h-6" />
+        <span>Đăng Ký Ngay</span>
+      </button>
     </motion.div>
 
-    {/* Image Grid */}
-    <motion.div 
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.3 }}
-      viewport={{ once: true }}
-      className="grid grid-cols-2 gap-6"
+    {/* RIGHT ILLUSTRATION SIDE */}
+    <motion.div
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8 }}
+      className="relative flex justify-center items-center h-full"
     >
-      {/* Large Image */}
-      <motion.div 
-        whileHover={{ scale: 1.05, y: -5 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="col-span-2"
-      >
-        <img 
-          src="hinhanh/Online calendar-pana.svg" 
-          alt="Study VHU Dashboard"
-          className="rounded-2xl shadow-xl border border-purple-500/30"
-        />
-      </motion.div>
+      {/* Hình nền phía sau */}
+      <motion.img
+        src="hinhanh/SVG/hihi.svg"
+        alt="Background Effect"
+        className="absolute w-[45rem] h-[45rem] object-contain z-0"
+        animate={{ y: [0, -40, 0], scale: [1, 1.03, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-      {/* Small Image 1 */}
-      <motion.div 
-        whileHover={{ scale: 1.05, y: -5 }}
-        transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
-      >
-        <img 
-          src="hinhanh/Research paper-amico (1).svg" 
-          alt="Pomodoro Tool"
-          className="rounded-2xl shadow-xl border border-blue-500/30"
-        />
-      </motion.div>
-
-      {/* Small Image 2 */}
-      <motion.div 
-        whileHover={{ scale: 1.05, y: -5 }}
-        transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-      >
-        <img 
-          src="hinhanh/Notes-bro.svg" 
-          alt="Study Statistics"
-          className="rounded-2xl shadow-xl border border-pink-500/30"
-        />
-      </motion.div>
+      {/* Hình chính */}
+      <motion.img
+        src="hinhanh/SVG/college project-pana.svg"
+        alt="Study Illustration"
+        className="w-[38rem] h-[38rem] object-contain drop-shadow-[0_0_40px_rgba(255,255,255,0.25)] relative z-10"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
     </motion.div>
+  </div>
 
+  {/* INFINITE LOGO TICKER - ĐỐI TÁC */}
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden z-20">
+    <style>{`
+      .infinite-ticker {
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 12px 0;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .ticker-content {
+        display: inline-block;
+        animation: scroll-left 50s linear infinite;
+      }
+      .ticker-content:hover {
+        animation-play-state: paused;
+      }
+      .logo-item {
+        display: inline-block;
+        margin: 0 40px;
+        height: 55px;
+      }
+      .logo-item img {
+        height: 55px;
+        width: auto;
+        vertical-align: middle;
+        filter: brightness(1.2);
+      }
+      @keyframes scroll-left {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+      }
+    `}</style>
+
+    <div className="infinite-ticker">
+      <div className="ticker-content">
+        {/* LOGOS */}
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 2.svg" alt="United" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 3.svg" alt="Santander" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 4.svg" alt="Unilever" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 5.svg" alt="Canva" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 6.svg" alt="Apple" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 7.svg" alt="Primerica" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 8.svg" alt="Ducati" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 9.svg" alt="ThermoFisher" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 1.svg" alt="ThermoFisher" /></div>
+          <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 4.svg" alt="Unilever" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 5.svg" alt="Canva" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 6.svg" alt="Apple" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 7.svg" alt="Primerica" /></div>
+        <div className="logo-item"><img src="hinhanh/icon/SVG/Asset 8.svg" alt="Ducati" /></div>
+   
+      </div>
+    </div>
   </div>
 </section>
 
+{/* Introducing Section */}
+<section
+  id="introducing"
+  className="relative w-full h-screen overflow-hidden grid grid-cols-2 grid-rows-2"
+>
+    <style>{`
+  .moving-text.to-left {
+  animation: moveLeft 25s linear infinite;
+}
+
+.moving-text.to-right {
+  animation: moveRight 25s linear infinite;
+}
+
+@keyframes moveLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes moveRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+   `}</style>
+
+  {/* Ô 1 - sáng */}
+  <motion.div
+    initial={{ opacity: 0, x: -40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="bg-gradient-to-br from-purple-100 to-purple-200 text-gray-900 flex flex-col justify-center items-start p-12"
+  >
+    <h2 className="text-5xl font-extrabold mb-4">Tại sao lại chọn Study VHU?</h2>
+    <p className="text-lg leading-relaxed max-w-md">
+      <span className="font-semibold text-indigo-600">Study VHU</span> không chỉ là một ứng dụng học tập – 
+      mà là <strong className="text-purple-600">nền tảng toàn diện</strong>, giúp sinh viên VHU quản lý việc học,
+      rèn luyện kỷ luật, và phát triển bản thân trong kỷ nguyên số.
+    </p>
+  </motion.div>
+
+  {/* Ô 2 + Ô 3 - nền tối + chữ chạy */}
+  <div className="col-span-1 row-span-2 relative bg-[#0d0529] flex items-center justify-center overflow-hidden">
+    {/* Section gốc chèn vào đây */}
+    <div
+      id="sectionMovingText"
+      className="absolute inset-0 w-full h-full text-white overflow-hidden"
+      style={{
+        backgroundImage:
+          "url('https://d1j8r0kxyu9tj8.cloudfront.net/files/73CVFoSofaeZWd5zxEre8BYyrRpy6pAUtQKFqzwL.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dòng chữ chạy sang trái */}
+      <p
+        className="moving-text to-left pb-4 hidden md:block"
+        style={{
+          background: "-webkit-linear-gradient(top, rgb(252, 4, 173), rgb(88, 0, 146))",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          fontSize: "180px",
+          whiteSpace: "nowrap",
+          position: "absolute",
+          fontWeight: 600,
+          left: "-153.49px",
+          opacity: 0.3,
+          top: "30%",
+        }}
+      >
+        STUDY VHU SMART LEARNING TOOLS
+      </p>
+
+      {/* Dòng chữ chạy sang phải */}
+      <p
+        className="moving-text to-right pt-4 hidden md:block"
+        style={{
+          background: "-webkit-linear-gradient(top, rgb(252, 4, 173), rgb(88, 0, 146))",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          fontSize: "180px",
+          whiteSpace: "nowrap",
+          position: "absolute",
+          fontWeight: 600,
+          right: "-107.693px",
+          opacity: 0.3,
+          top: "47%",
+        }}
+      >
+        GRAPHIC & MULTIMEDIA DESIGN PROGRAM
+      </p>
+    </div>
+  </div>
+
+  {/* Ô 4 - sáng */}
+  <motion.div
+    initial={{ opacity: 0, x: 40 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+    className="bg-gradient-to-br from-purple-100 to-purple-200 text-gray-900 flex flex-col justify-center items-start p-12"
+  >
+    <p className="text-lg leading-relaxed max-w-md">
+      Với triết lý{" "}
+      <span className="font-semibold text-purple-600">“Học tập không giới hạn”</span>, 
+      Study VHU mang đến môi trường học tập 
+      <span className="text-indigo-600 font-medium"> thông minh – tập trung – hiệu quả</span>.
+    </p>
+  </motion.div>
+</section>
 
 
 <StudyToolsSection />
@@ -424,316 +505,179 @@ function App() {
 
 
 
-        {/* AI Tools Section */}
-        <section id="ai" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Công Nghệ AI Hỗ Trợ Học Tập
-              </h2>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                Khám phá các công cụ AI tốt nhất để tăng tốc quá trình học tập và nâng cao hiệu suất học tập.
-              </p>
-            </motion.div>
 
-            <div className="flex flex-col lg:flex-row gap-8">
-              {/* Left Sidebar - Filters */}
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="lg:w-1/4"
-              >
-                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 sticky top-24">
-                  <h3 className="text-lg font-semibold mb-4 text-gray-800">Lọc & Tìm Kiếm</h3>
-                  
-                  {/* Search */}
-                  <div className="mb-6">
-                    <div className="relative">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                      <input
-                        type="text"
-                        placeholder="Tìm kiếm công cụ AI..."
-                        value={aiSearchTerm}
-                        onChange={(e) => setAiSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                      />
-                    </div>
-                  </div>
 
-                  {/* Categories */}
-                  <div>
-                    <h4 className="font-medium text-gray-700 mb-3 text-sm">Danh Mục</h4>
-                    <div className="space-y-2">
-                      {aiCategories.map((category) => (
-                        <button
-                          key={category}
-                          onClick={() => setSelectedAiCategory(category)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                            selectedAiCategory === category
-                              ? 'bg-blue-100 text-blue-700 font-medium'
-                              : 'text-gray-600 hover:bg-gray-100'
-                          }`}
-                        >
-                          {category}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
 
-                  {/* Results Count */}
-                  <div className="mt-6 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-500">
-                      Hiển thị {filteredAiTools.length} / {aiTools.length} công cụ
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
 
-              {/* Right Content - AI Tools Grid */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="lg:w-3/4"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  {filteredAiTools.map((tool, index) => (
-                    <motion.div 
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200/50 flex flex-col h-full"
-                    >
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl flex items-center justify-center">
-                            <tool.icon className="w-5 h-5 text-blue-600" />
-                          </div>
-                          <span className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
-                            {tool.category}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                          <span className="text-sm text-gray-600">{tool.rating}</span>
-                        </div>
-                      </div>
-                      
-                      <h3 className="text-lg font-semibold mb-2 text-gray-800">{tool.name}</h3>
-                      <p className="text-gray-600 mb-3 text-sm flex-grow">{tool.description}</p>
-                      <p className="text-xs text-gray-500 mb-4 italic">{tool.useCase}</p>
-                      
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-1 mb-4">
-                        {tool.tags.map((tag, tagIndex) => (
-                          <span key={tagIndex} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <div className="flex items-center justify-between mt-auto">
-                        <span className="text-xs text-gray-500">{tool.users} người dùng</span>
-                        <button 
-                          onClick={handleRegisterNow}
-                          className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium flex items-center justify-center space-x-1 text-sm px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                        >
-                          <span>Đăng Ký</span>
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
 
-                {filteredAiTools.length === 0 && (
-                  <div className="text-center py-12">
-                    <div className="text-gray-400 mb-4">
-                      <Search className="w-12 h-12 mx-auto" />
-                    </div>
-                    <p className="text-gray-500">Không tìm thấy công cụ AI phù hợp với tiêu chí tìm kiếm.</p>
-                  </div>
-                )}
-              </motion.div>
+{/* Study Materials Section */}
+<section >
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 bg-gradient-to-r from-pink-400 to-indigo-400 bg-clip-text text-transparent">
+        Tài Liệu Học Tập Toàn Diện
+      </h2>
+      <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+        Truy cập hàng nghìn tài liệu học tập được chọn lọc kỹ lưỡng theo nhiều chủ đề và cấp độ khác nhau.
+      </p>
+    </motion.div>
+
+    <div className="flex flex-col lg:flex-row gap-10">
+      {/* Sidebar */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="lg:w-1/4"
+      >
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sticky top-24 border border-white/20">
+          <h3 className="text-lg font-semibold mb-5 text-gray-100">🔍 Lọc & Tìm Kiếm</h3>
+
+          {/* Search */}
+          <div className="mb-6">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Tìm kiếm tài liệu..."
+                value={materialsSearchTerm}
+                onChange={(e) => setMaterialsSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 bg-black/30 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400 text-sm text-gray-200 placeholder-gray-400"
+              />
             </div>
           </div>
-        </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-        {/* Study Materials Section */}
-        <section id="materials" className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Tài Liệu Học Tập Toàn Diện
-              </h2>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-                Truy cập hàng nghìn tài liệu học tập được tuyển chọn kỹ lưỡng theo nhiều chủ đề và cấp độ khác nhau.
-              </p>
-            </motion.div>
-
-            <div className="flex flex-col lg:flex-row gap-8">
-              {/* Left Sidebar - Filters */}
-              <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="lg:w-1/4"
-              >
-                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 sticky top-24">
-                  <h3 className="text-lg font-semibold mb-4 text-gray-800">Lọc & Tìm Kiếm</h3>
-                  
-                  {/* Search */}
-                  <div className="mb-6">
-                    <div className="relative">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                      <input
-                        type="text"
-                        placeholder="Tìm kiếm tài liệu..."
-                        value={materialsSearchTerm}
-                        onChange={(e) => setMaterialsSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Categories */}
-                  <div>
-                    <h4 className="font-medium text-gray-700 mb-3 text-sm">Lĩnh Vực</h4>
-                    <div className="space-y-2">
-                      {materialCategories.map((category) => (
-                        <button
-                          key={category}
-                          onClick={() => setSelectedMaterialsCategory(category)}
-                          className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
-                            selectedMaterialsCategory === category
-                              ? 'bg-blue-100 text-blue-700 font-medium'
-                              : 'text-gray-600 hover:bg-gray-100'
-                          }`}
-                        >
-                          {category}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Quick Filters */}
-                  <div className="mt-6">
-                    <h4 className="font-medium text-gray-700 mb-3 text-sm">Bộ Lọc Nhanh</h4>
-                    <div className="space-y-2">
-                      <button className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors">
-                        📚 Tài liệu mới nhất
-                      </button>
-                      <button className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors">
-                        ⭐ Đánh giá cao
-                      </button>
-                      <button className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-600 hover:bg-gray-100 transition-colors">
-                        🔥 Phổ biến nhất
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Results Count */}
-                  <div className="mt-6 pt-4 border-t border-gray-200">
-                    <p className="text-sm text-gray-500">
-                      Hiển thị {filteredMaterials.length} / {studyMaterials.length} tài liệu
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Right Content - Materials Grid */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="lg:w-3/4"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  {filteredMaterials.map((material, index) => (
-                    <motion.div 
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl transition-all duration-300 border border-gray-200/50 flex flex-col h-full"
-                    >
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-100 to-purple-100 rounded-xl flex items-center justify-center">
-                          <material.icon className="w-6 h-6 text-blue-600" />
-                        </div>
-                        <div className="text-right">
-                          <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium block mb-1">
-                            {material.resources} Tài Liệu
-                          </span>
-                          <span className="text-xs text-gray-500">{material.downloads} lượt tải</span>
-                        </div>
-                      </div>
-                      
-                      <h3 className="text-xl font-semibold mb-2 text-gray-800">{material.title}</h3>
-                      <p className="text-gray-600 mb-2 text-sm flex-grow">{material.description}</p>
-                      <p className="text-gray-600 mb-2 text-sm">📍 {material.university}</p>
-                      <p className="text-gray-600 mb-4 text-sm">🎓 Cấp độ: {material.level}</p>
-                      
-                      <div className="mb-6">
-                        <h4 className="font-medium text-gray-700 mb-2 text-sm">Môn học bao gồm:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {material.subjects.map((subject, idx) => (
-                            <span key={idx} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">
-                              {subject}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div className="flex space-x-2 mt-auto">
-                        <button 
-                          onClick={handleRegisterNow}
-                          className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm"
-                        >
-                          Đăng Ký Truy Cập
-                        </button>
-                        <button className="px-4 py-3 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors">
-                          <Bookmark className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {filteredMaterials.length === 0 && (
-                  <div className="text-center py-12">
-                    <div className="text-gray-400 mb-4">
-                      <BookOpen className="w-12 h-12 mx-auto" />
-                    </div>
-                    <p className="text-gray-500">Không tìm thấy tài liệu phù hợp với tiêu chí tìm kiếm.</p>
-                  </div>
-                )}
-              </motion.div>
+          {/* Categories */}
+          <div>
+            <h4 className="font-medium text-gray-300 mb-3 text-sm">📂 Lĩnh Vực</h4>
+            <div className="space-y-2">
+              {materialCategories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedMaterialsCategory(category)}
+                  className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
+                    selectedMaterialsCategory === category
+                      ? "bg-pink-500/30 text-pink-300 font-medium"
+                      : "text-gray-300 hover:bg-white/10"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
             </div>
           </div>
-        </section>
+
+          {/* Quick Filters */}
+          <div className="mt-6">
+            <h4 className="font-medium text-gray-300 mb-3 text-sm">⚡ Bộ Lọc Nhanh</h4>
+            <div className="space-y-2">
+              <button className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 transition">
+                📚 Tài liệu mới nhất
+              </button>
+              <button className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 transition">
+                ⭐ Đánh giá cao
+              </button>
+              <button className="w-full text-left px-3 py-2 rounded-lg text-sm text-gray-300 hover:bg-white/10 transition">
+                🔥 Phổ biến nhất
+              </button>
+            </div>
+          </div>
+
+          {/* Results Count */}
+          <div className="mt-6 pt-4 border-t border-white/10">
+            <p className="text-sm text-gray-400">
+              Hiển thị {filteredMaterials.length} / {studyMaterials.length} tài liệu
+            </p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Materials Grid */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="lg:w-3/4"
+      >
+        <div className="grid md:grid-cols-2 gap-8">
+          {filteredMaterials.map((material, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-6 hover:shadow-lg hover:shadow-pink-500/20 transition-all duration-300 border border-white/10 flex flex-col h-full"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-pink-200/30 to-indigo-200/30 rounded-xl flex items-center justify-center">
+                  <material.icon className="w-6 h-6 text-pink-300" />
+                </div>
+                <div className="text-right">
+                  <span className="bg-green-400/20 text-green-300 px-3 py-1 rounded-full text-sm font-medium block mb-1">
+                    {material.resources} Tài Liệu
+                  </span>
+                  <span className="text-xs text-gray-400">{material.downloads} lượt tải</span>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-semibold mb-2 text-white">{material.title}</h3>
+              <p className="text-gray-300 mb-2 text-sm flex-grow">{material.description}</p>
+              <p className="text-gray-400 mb-2 text-sm">📍 {material.university}</p>
+              <p className="text-gray-400 mb-4 text-sm">🎓 Cấp độ: {material.level}</p>
+
+              <div className="mb-6">
+                <h4 className="font-medium text-gray-200 mb-2 text-sm">Môn học bao gồm:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {material.subjects.map((subject, idx) => (
+                    <span key={idx} className="bg-indigo-400/20 text-indigo-200 px-3 py-1 rounded-full text-xs">
+                      {subject}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex space-x-2 mt-auto">
+                <button
+                  onClick={handleRegisterNow}
+                  className="flex-1 bg-gradient-to-r from-pink-500 to-indigo-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm"
+                >
+                  Đăng Ký Truy Cập
+                </button>
+                <button className="px-4 py-3 bg-white/10 text-gray-300 rounded-lg hover:bg-white/20 transition">
+                  <Bookmark className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {filteredMaterials.length === 0 && (
+          <div className="text-center py-12">
+            <div className="text-gray-500 mb-4">
+              <BookOpen className="w-12 h-12 mx-auto" />
+            </div>
+            <p className="text-gray-400">Không tìm thấy tài liệu phù hợp với tiêu chí tìm kiếm.</p>
+          </div>
+        )}
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 
         {/* Inline Registration Form Section */}
         <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
@@ -776,6 +720,7 @@ function App() {
             </motion.div>
           </div>
         </section>
+</div>
 
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-12">
