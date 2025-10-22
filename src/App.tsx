@@ -13,6 +13,7 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   
   // Search and filter states
   const [aiSearchTerm, setAiSearchTerm] = useState('');
@@ -20,12 +21,13 @@ function App() {
   const [materialsSearchTerm, setMaterialsSearchTerm] = useState('');
   const [selectedMaterialsCategory, setSelectedMaterialsCategory] = useState('Tất Cả');
 
-  // Handle scroll to show/hide scroll to top button
+  // Handle scroll to show/hide scroll to top button and track scroll position
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const windowHeight = window.innerHeight;
       
+      setScrollY(scrollTop);
       // Show button when scrolled past half of the viewport height
       setShowScrollToTop(scrollTop > windowHeight / 2);
     };
@@ -387,116 +389,311 @@ function App() {
     </div>
   </div>
 </section>
-
-{/* Introducing Section */}
+{/* Enhanced Introducing Section with Scroll Interactions */}
 <section
   id="introducing"
-  className="relative w-full h-screen overflow-hidden grid grid-cols-2 grid-rows-2"
+  className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-indigo-950 via-purple-900 to-slate-900"
 >
-    <style>{`
-  .moving-text.to-left {
-  animation: moveLeft 25s linear infinite;
-}
+  <style>{`
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.8; }
+    }
 
-.moving-text.to-right {
-  animation: moveRight 25s linear infinite;
-}
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
 
-@keyframes moveLeft {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
+    .moving-text-scroll {
+      white-space: nowrap;
+      position: absolute;
+      font-weight: 700;
+      background: linear-gradient(135deg, rgb(252, 4, 173), rgb(168, 85, 247), rgb(88, 0, 146));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(168, 85, 247, 0.5);
+      transform: translateY(-5px);
+    }
 
-@keyframes moveRight {
-  from { transform: translateX(0); }
-  to { transform: translateX(50%); }
-}
-   `}</style>
+    .gradient-text {
+      background: linear-gradient(135deg, #a855f7, #ec4899, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  `}</style>
 
-  {/* Ô 1 - sáng */}
-  <motion.div
-    initial={{ opacity: 0, x: -40 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8 }}
-    viewport={{ once: true }}
-    className="bg-gradient-to-br from-purple-100 to-purple-200 text-gray-900 flex flex-col justify-center items-start p-12"
-  >
-    <h2 className="text-5xl font-extrabold mb-4">Tại sao lại chọn Study VHU?</h2>
-    <p className="text-lg leading-relaxed max-w-md">
-      <span className="font-semibold text-indigo-600">Study VHU</span> không chỉ là một ứng dụng học tập – 
-      mà là <strong className="text-purple-600">nền tảng toàn diện</strong>, giúp sinh viên VHU quản lý việc học,
-      rèn luyện kỷ luật, và phát triển bản thân trong kỷ nguyên số.
-    </p>
-  </motion.div>
-
-  {/* Ô 2 + Ô 3 - nền tối + chữ chạy */}
-  <div className="col-span-1 row-span-2 relative bg-[#0d0529] flex items-center justify-center overflow-hidden">
-    {/* Section gốc chèn vào đây */}
-    <div
-      id="sectionMovingText"
-      className="absolute inset-0 w-full h-full text-white overflow-hidden"
-      style={{
-        backgroundImage:
-          "url('https://d1j8r0kxyu9tj8.cloudfront.net/files/73CVFoSofaeZWd5zxEre8BYyrRpy6pAUtQKFqzwL.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+  {/* Animated gradient background blobs */}
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <motion.div 
+      className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] bg-purple-600/20 rounded-full blur-3xl"
+      animate={{
+        scale: [1, 1.2, 1],
+        x: [0, 50, 0],
+        y: [0, 30, 0],
       }}
-    >
-      {/* Dòng chữ chạy sang trái */}
-      <p
-        className="moving-text to-left pb-4 hidden md:block"
-        style={{
-          background: "-webkit-linear-gradient(top, rgb(252, 4, 173), rgb(88, 0, 146))",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          fontSize: "180px",
-          whiteSpace: "nowrap",
-          position: "absolute",
-          fontWeight: 600,
-          left: "-153.49px",
-          opacity: 0.3,
-          top: "30%",
-        }}
-      >
-        STUDY VHU SMART LEARNING TOOLS
-      </p>
-
-      {/* Dòng chữ chạy sang phải */}
-      <p
-        className="moving-text to-right pt-4 hidden md:block"
-        style={{
-          background: "-webkit-linear-gradient(top, rgb(252, 4, 173), rgb(88, 0, 146))",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          fontSize: "180px",
-          whiteSpace: "nowrap",
-          position: "absolute",
-          fontWeight: 600,
-          right: "-107.693px",
-          opacity: 0.3,
-          top: "47%",
-        }}
-      >
-        GRAPHIC & MULTIMEDIA DESIGN PROGRAM
-      </p>
-    </div>
+      transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+    />
+    <motion.div 
+      className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-pink-600/20 rounded-full blur-3xl"
+      animate={{
+        scale: [1, 1.3, 1],
+        x: [0, -30, 0],
+        y: [0, 50, 0],
+      }}
+      transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+    />
+    <motion.div 
+      className="absolute -bottom-1/4 left-1/3 w-[700px] h-[700px] bg-indigo-600/20 rounded-full blur-3xl"
+      animate={{
+        scale: [1, 1.1, 1],
+        x: [0, 40, 0],
+        y: [0, -20, 0],
+      }}
+      transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+    />
   </div>
 
-  {/* Ô 4 - sáng */}
-  <motion.div
-    initial={{ opacity: 0, x: 40 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8 }}
-    viewport={{ once: true }}
-    className="bg-gradient-to-br from-purple-100 to-purple-200 text-gray-900 flex flex-col justify-center items-start p-12"
-  >
-    <p className="text-lg leading-relaxed max-w-md">
-      Với triết lý{" "}
-      <span className="font-semibold text-purple-600">“Học tập không giới hạn”</span>, 
-      Study VHU mang đến môi trường học tập 
-      <span className="text-indigo-600 font-medium"> thông minh – tập trung – hiệu quả</span>.
-    </p>
-  </motion.div>
+  {/* Scroll-interactive moving text background */}
+  <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+    <motion.p
+      className="moving-text-scroll"
+      style={{
+        fontSize: "clamp(80px, 15vw, 180px)",
+        top: "25%",
+        left: "-10%",
+        opacity: 0.15,
+        transform: `translateX(${scrollY * 0.3}px)`,
+      }}
+    >
+      STUDY VHU SMART LEARNING TOOLS
+    </motion.p>
+    <motion.p
+      className="moving-text-scroll"
+      style={{
+        fontSize: "clamp(80px, 15vw, 180px)",
+        top: "55%",
+        right: "-10%",
+        opacity: 0.15,
+        transform: `translateX(${-scrollY * 0.25}px)`,
+      }}
+    >
+      INNOVATION • EXCELLENCE • GROWTH
+    </motion.p>
+  </div>
+
+  {/* Main content container */}
+  <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-32">
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      
+      {/* Left content - Text and description */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="space-y-8"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight">
+            Tại sao lại chọn{" "}
+            <span className="gradient-text">Study VHU?</span>
+          </h2>
+          <p className="text-xl text-gray-300 leading-relaxed mb-6">
+            <span className="font-semibold text-purple-400">Study VHU</span> không chỉ là một ứng dụng học tập – 
+            mà là <strong className="text-pink-400">nền tảng toàn diện</strong>, giúp sinh viên VHU quản lý việc học,
+            rèn luyện kỷ luật, và phát triển bản thân trong kỷ nguyên số.
+          </p>
+          <p className="text-lg text-gray-400 leading-relaxed">
+            Với triết lý{" "}
+            <span className="font-semibold text-purple-300">"Học tập không giới hạn"</span>, 
+            Study VHU mang đến môi trường học tập 
+            <span className="text-pink-300 font-medium"> thông minh – tập trung – hiệu quả</span>.
+          </p>
+        </motion.div>
+
+        {/* Stats cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-3 gap-4"
+        >
+          <div className="glass-card rounded-2xl p-4 text-center">
+            <div className="text-3xl font-bold text-purple-400 mb-1">1000+</div>
+            <div className="text-sm text-gray-300">Sinh viên</div>
+          </div>
+          <div className="glass-card rounded-2xl p-4 text-center">
+            <div className="text-3xl font-bold text-pink-400 mb-1">500+</div>
+            <div className="text-sm text-gray-300">Tài liệu</div>
+          </div>
+          <div className="glass-card rounded-2xl p-4 text-center">
+            <div className="text-3xl font-bold text-indigo-400 mb-1">95%</div>
+            <div className="text-sm text-gray-300">Hài lòng</div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Right content - Interactive feature cards */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="space-y-6"
+      >
+        {/* Feature card 1 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="glass-card rounded-3xl p-6 float-animation"
+          style={{ animationDelay: '0s' }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+              <Rocket className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">Công Nghệ AI Tiên Tiến</h3>
+              <p className="text-gray-300 text-sm">
+                Trợ lý AI thông minh giúp bạn học tập hiệu quả hơn với gợi ý cá nhân hóa và phân tích tiến độ chi tiết.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Feature card 2 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="glass-card rounded-3xl p-6 float-animation"
+          style={{ animationDelay: '2s' }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+              <Users className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">Cộng Đồng Năng Động</h3>
+              <p className="text-gray-300 text-sm">
+                Kết nối với hàng nghìn sinh viên, chia sẻ kiến thức và cùng nhau phát triển trong môi trường học tập tích cực.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Feature card 3 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="glass-card rounded-3xl p-6 float-animation"
+          style={{ animationDelay: '4s' }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center flex-shrink-0">
+              <Target className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">Mục Tiêu Rõ Ràng</h3>
+              <p className="text-gray-300 text-sm">
+                Thiết lập và theo dõi mục tiêu học tập của bạn với hệ thống quản lý thông minh và nhắc nhở tự động.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Feature card 4 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="glass-card rounded-3xl p-6 float-animation"
+          style={{ animationDelay: '1s' }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
+              <Sparkles className="w-7 h-7 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">Trải Nghiệm Tối Ưu</h3>
+              <p className="text-gray-300 text-sm">
+                Giao diện hiện đại, dễ sử dụng được thiết kế đặc biệt cho sinh viên với hiệu năng cao trên mọi thiết bị.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+
+    {/* Bottom call-to-action section */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+      viewport={{ once: true }}
+      className="mt-20 text-center"
+    >
+      <div className="glass-card rounded-3xl p-8 max-w-4xl mx-auto">
+        <h3 className="text-3xl font-bold text-white mb-4">
+          Bắt đầu hành trình học tập thông minh ngay hôm nay
+        </h3>
+        <p className="text-gray-300 mb-6 text-lg">
+          Tham gia cùng hàng nghìn sinh viên đã tin tưởng và sử dụng Study VHU để đạt được mục tiêu học tập của mình.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleRegisterNow}
+            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <Sparkles className="w-5 h-5" />
+            <span>Trải nghiệm miễn phí</span>
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="glass-card text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <Play className="w-5 h-5" />
+            <span>Xem demo</span>
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+  </div>
 </section>
 
 
@@ -820,3 +1017,4 @@ function App() {
 }
 
 export default App;
+
