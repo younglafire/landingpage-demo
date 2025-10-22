@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 import { Header } from './components/Layout/Header';
 import { RegistrationForm } from './components/Registration/RegistrationForm';
+import { Chatbot } from './components/Chatbot/Chatbot';
 import StudyToolsSection from './video/StudyToolsSection';
 
 
@@ -794,6 +795,9 @@ function App() {
         variant="modal" 
       />
 
+      {/* Chatbot Widget */}
+      <Chatbot onRegisterClick={handleRegisterNow} />
+
       {/* Scroll to Top Button */}
       {showScrollToTop && (
         <motion.button
@@ -801,7 +805,7 @@ function App() {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
+          className="fixed bottom-8 right-24 z-40 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 flex items-center justify-center group"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
