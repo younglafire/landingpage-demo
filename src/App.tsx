@@ -20,14 +20,31 @@ function App() {
   const [materialsSearchTerm, setMaterialsSearchTerm] = useState('');
   const [selectedMaterialsCategory, setSelectedMaterialsCategory] = useState('Tất Cả');
 
-  // Handle scroll to show/hide scroll to top button
+  // Scroll-based text movement states
+  const [textLeftOffset, setTextLeftOffset] = useState(0);
+  const [textRightOffset, setTextRightOffset] = useState(0);
+
+  // Handle scroll to show/hide scroll to top button and move text
   useEffect(() => {
+    let lastScrollTop = 0;
+
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const windowHeight = window.innerHeight;
       
       // Show button when scrolled past half of the viewport height
       setShowScrollToTop(scrollTop > windowHeight / 2);
+
+      // Calculate scroll delta
+      const scrollDelta = scrollTop - lastScrollTop;
+      
+      // Update text positions based on scroll direction
+      // Scroll down (positive delta): move left text more left, right text more right
+      // Scroll up (negative delta): move left text more right, right text more left
+      setTextLeftOffset(prev => prev - scrollDelta * 0.5);
+      setTextRightOffset(prev => prev + scrollDelta * 0.5);
+      
+      lastScrollTop = scrollTop;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -394,23 +411,9 @@ function App() {
   className="relative w-full h-screen overflow-hidden grid grid-cols-2 grid-rows-2"
 >
     <style>{`
-  .moving-text.to-left {
-  animation: moveLeft 25s linear infinite;
-}
-
-.moving-text.to-right {
-  animation: moveRight 25s linear infinite;
-}
-
-@keyframes moveLeft {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes moveRight {
-  from { transform: translateX(0); }
-  to { transform: translateX(50%); }
-}
+  .moving-text {
+    transition: transform 0.1s ease-out;
+  }
    `}</style>
 
   {/* Ô 1 - sáng */}
@@ -442,9 +445,9 @@ function App() {
         backgroundPosition: "center",
       }}
     >
-      {/* Dòng chữ chạy sang trái */}
+      {/* Dòng chữ chạy sang trái (moves based on scroll) */}
       <p
-        className="moving-text to-left pb-4 hidden md:block"
+        className="moving-text pb-4 hidden md:block"
         style={{
           background: "-webkit-linear-gradient(top, rgb(252, 4, 173), rgb(88, 0, 146))",
           WebkitBackgroundClip: "text",
@@ -456,14 +459,15 @@ function App() {
           left: "-153.49px",
           opacity: 0.3,
           top: "30%",
+          transform: `translateX(${textLeftOffset}px)`,
         }}
       >
         STUDY VHU SMART LEARNING TOOLS
       </p>
 
-      {/* Dòng chữ chạy sang phải */}
+      {/* Dòng chữ chạy sang phải (moves based on scroll) */}
       <p
-        className="moving-text to-right pt-4 hidden md:block"
+        className="moving-text pt-4 hidden md:block"
         style={{
           background: "-webkit-linear-gradient(top, rgb(252, 4, 173), rgb(88, 0, 146))",
           WebkitBackgroundClip: "text",
@@ -475,6 +479,7 @@ function App() {
           right: "-107.693px",
           opacity: 0.3,
           top: "47%",
+          transform: `translateX(${textRightOffset}px)`,
         }}
       >
         GRAPHIC & MULTIMEDIA DESIGN PROGRAM
