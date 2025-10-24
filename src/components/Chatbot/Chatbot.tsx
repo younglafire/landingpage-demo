@@ -142,9 +142,17 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onRegisterClick }) => {
     if (lowerMessage.includes('liên hệ') || lowerMessage.includes('contact')) {
       return 'Bạn có thể liên hệ với Study VHU qua:\n\n📧 Email: support@studyvhu.com\n🌐 Website: https://studyvhu.com\n\nHoặc điền form đăng ký và chúng tôi sẽ liên hệ lại với bạn!';
     }
-
+   // Emotional / casual responses
+  if (lowerMessage.includes('cảm ơn') || lowerMessage.includes('thanks')) {
+    return 'Không có gì đâu 😊. Rất vui khi được giúp bạn!';
+  }
     // Default response
     return 'Xin lỗi, tôi chưa hiểu rõ câu hỏi của bạn. 😅\n\nBạn có thể hỏi tôi về:\n• Công cụ học tập\n• Công cụ AI\n• Tài liệu học tập\n• Đăng ký tài khoản\n• Tính năng và lợi ích\n\nHoặc gõ "giúp" để xem các chủ đề tôi có thể hỗ trợ!';
+  
+      // Motivation
+  if (lowerMessage.includes('học tốt') || lowerMessage.includes('mẹo học') || lowerMessage.includes('lười')) {
+    return '💡 Mẹo học tập hiệu quả:\n1️⃣ Dùng Pomodoro 25 phút\n2️⃣ Ghi chú ngắn gọn bằng từ khóa\n3️⃣ Học theo nhóm hoặc dùng AI hỗ trợ\n4️⃣ Nghỉ ngơi đủ và tập thể dục nhẹ\n\nKiên trì nhỏ mỗi ngày tạo nên thành công lớn! 🚀';
+  }
   };
 
   const handleSendMessage = async () => {
@@ -156,6 +164,10 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onRegisterClick }) => {
       sender: 'user',
       timestamp: new Date(),
     };
+
+
+
+
 
     setMessages((prev) => [...prev, userMessage]);
     setInputText('');
@@ -312,15 +324,18 @@ export const Chatbot: React.FC<ChatbotProps> = ({ onRegisterClick }) => {
             {/* Input */}
             <div className="px-4 py-4 bg-white border-t">
               <div className="flex items-center space-x-2">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={inputText}
-                  onChange={(e) => setInputText(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Gõ câu hỏi của bạn..."
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
-                />
+           <input
+  ref={inputRef}
+  type="text"
+  value={inputText}
+  onChange={(e) => setInputText(e.target.value)}
+  onKeyPress={handleKeyPress}
+  placeholder="💬 Gõ câu hỏi của bạn..."
+  className="flex-1 px-5 py-3 rounded-full bg-white/80 text-gray-800 placeholder-gray-400 shadow-inner 
+             border border-gray-200 focus:border-purple-400 focus:ring-2 focus:ring-purple-300 
+             transition-all duration-200 outline-none"
+ />
+
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputText.trim()}

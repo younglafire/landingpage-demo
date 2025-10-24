@@ -217,7 +217,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                 className="w-full pl-10 pr-4 py-3 border  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
                   placeholder="Nhập họ và tên"
                   required
                 />
@@ -235,7 +235,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                   className="w-full pl-10 pr-4 py-3 border  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
                   placeholder="Nhập email"
                   required
                 />
@@ -255,7 +255,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-10 pr-4 py-3 border  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
                   placeholder="Nhập số điện thoại"
                 />
               </div>
@@ -268,13 +268,14 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
               <div className="relative">
                 <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <input
-                  type="text"
-                  name="university"
-                  value={formData.university}
-                  onChange={handleInputChange}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Tên trường đại học"
-                />
+  type="text"
+  name="university"
+  value={formData.university}
+  onChange={handleInputChange}
+  className="w-full pl-10 pr-4 py-3 border  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
+  placeholder="Tên trường đại học"
+/>
+
               </div>
             </div>
           </div>
@@ -289,7 +290,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 name="yearOfStudy"
                 value={formData.yearOfStudy}
                 onChange={handleInputChange}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+             className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
                 required
               >
                 <option value="">Chọn năm học</option>
@@ -307,7 +308,7 @@ export const RegistrationForm: React.FC<RegistrationFormProps> = ({
                 name="major"
                 value={formData.major}
                 onChange={handleInputChange}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-500"
                 required
               >
                 <option value="">Chọn chuyên ngành</option>

@@ -104,12 +104,16 @@ export default function StudyToolsDemo() {
         transition={{ duration: 0.6 }}
         className="text-center relative z-10 mb-10"
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-300 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-          Bộ Công Cụ Học Tập
-        </h1>
-        <p className="text-base md:text-lg text-white/80 mt-3 max-w-2xl mx-auto">
-          Quản lý thời gian, ghi chú và học nhóm — tất cả trong một nền tảng duy nhất.
-        </p>
+  <h1
+  className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-300 via-pink-400 to-blue-400 bg-clip-text text-transparent inline-block leading-tight md:leading-[1.1]"
+>
+  Bộ Công Cụ Học Tập
+</h1>
+
+<p className="text-base md:text-lg text-white/80 mt-4 leading-relaxed max-w-2xl mx-auto">
+  Quản lý thời gian, ghi chú và học nhóm — tất cả trong một nền tảng duy nhất.
+</p>
+
       </motion.div>
 
       {/* Toolbar */}
